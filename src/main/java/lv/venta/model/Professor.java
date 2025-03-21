@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
@@ -40,9 +41,10 @@ public class Professor {
 	
 	@Column(name = "degree")
 	@NotNull
-	
 	private Degree degree;
 	
+	@OneToOne(mappedBy = "professor")
+	private Course course;
 	
 	public Professor(String inputName, String inputSurname, Degree inputDegree)
 	{
