@@ -43,7 +43,8 @@ public class Professor {
 	@NotNull
 	private Degree degree;
 	
-	@OneToOne(mappedBy = "professor")
+	@OneToOne(mappedBy = "professor")//need to point which column to point
+	@ToString.Exclude
 	private Course course;
 	
 	public Professor(String inputName, String inputSurname, Degree inputDegree)
