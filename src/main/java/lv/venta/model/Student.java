@@ -1,9 +1,13 @@
 package lv.venta.model;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
@@ -17,6 +21,7 @@ import lombok.ToString;
 	@Setter
 	@NoArgsConstructor
 	@ToString
+	@Entity
 	public class Student 
 	{
 		
@@ -35,6 +40,10 @@ import lombok.ToString;
 		@NotNull
 		@Pattern(regexp = "[A-Z]{1}[a-z]{3,30}")
 		private String surname;
+		
+		@OneToMany(mappedBy = "student")
+		@ToString.Exclude
+		public Collection<Grade> grades;
 		
 		public Student(String inputName, String inputSurname)
 		{
