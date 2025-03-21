@@ -36,12 +36,11 @@ import lombok.ToString;
 		@Pattern(regexp = "[A-Z]{1}[a-z]{3,30}")
 		private String surname;
 		
-		public Student(String name, String surname)
+		public Student(String inputName, String inputSurname)
 		{
-			setName(name);
-			setSurname(surname);
+			setName(inputName);
+			setSurname(inputSurname);
 		}
-		
 		
 		
 	}
